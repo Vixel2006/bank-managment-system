@@ -1,7 +1,7 @@
 #include "account.h"
 #include "bank.h"
 #include <iostream>
-#include <limits> // Required for numeric_limits
+#include <limits>
 
 void clear_input_buffer() {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -30,14 +30,13 @@ int main() {
     print_menu();
     std::cin >> choice;
 
-    // Handle invalid input for choice
     if (std::cin.fail()) {
       std::cout << "Invalid input. Please enter a number.\n";
-      std::cin.clear();     // Clear error flags
-      clear_input_buffer(); // Discard invalid input
+      std::cin.clear();
+      clear_input_buffer();
       continue;
     }
-    clear_input_buffer(); // Clear the rest of the line after reading choice
+    clear_input_buffer();
 
     switch (choice) {
     case 1: // Create Account
